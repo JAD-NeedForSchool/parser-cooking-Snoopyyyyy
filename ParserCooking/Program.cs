@@ -2,6 +2,7 @@
 using ParserCooking.Interpreters;
 using ParserCooking.Operations.Nary;
 using ParserCooking.Operations.Simple;
+using ParserCooking.Parsers;
 
 var context = new CookingRecipeOrder();
 
@@ -17,7 +18,7 @@ var blend = new NaryOperation("Blend");
 var add = new NaryOperation("Add");
 var mix = new SimpleOperation("Mix");
 
-ICookingOrder takeYellowOrder = new SimpleOperationCookingOrder(extractYellow, new IngredientCookingOrder(egg));
+/*ICookingOrder takeYellowOrder = new SimpleOperationCookingOrder(extractYellow, new IngredientCookingOrder(egg));
 ICookingOrder mixOrder = new NaryOperationCookingOrder(blend, [
     takeYellowOrder,
     new IngredientCookingOrder(mustard),
@@ -31,4 +32,6 @@ var mayonnaiseOrder = new CookingRecipeOrder();
 
 mayonnaiseRecipe.Interpret(mayonnaiseOrder);
 
-Console.WriteLine(mayonnaiseOrder.Ingredient.Name);
+Console.WriteLine(mayonnaiseOrder.Ingredient.Name);*/
+
+CookingRecipeParser.Parse("Touiller(Ajouter(Mélanger(PrendreJaune(Oeuf) Moutarde Vinaigre) Huile))");
